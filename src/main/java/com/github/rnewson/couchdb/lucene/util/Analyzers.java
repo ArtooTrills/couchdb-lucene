@@ -16,6 +16,7 @@
 
 package com.github.rnewson.couchdb.lucene.util;
 
+import com.github.rnewson.couchdb.lucene.NGramAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.br.BrazilianAnalyzer;
@@ -161,6 +162,11 @@ public enum Analyzers {
     WHITESPACE {
         public Analyzer newAnalyzer(final String args) {
             return new WhitespaceAnalyzer(Constants.VERSION);
+        }
+    },
+    NGRAM {
+        public Analyzer newAnalyzer(final String args) {
+            return new NGramAnalyzer(Constants.VERSION);
         }
     };
 

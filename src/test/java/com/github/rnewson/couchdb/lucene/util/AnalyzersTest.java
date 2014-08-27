@@ -16,6 +16,7 @@
 
 package com.github.rnewson.couchdb.lucene.util;
 
+import com.github.rnewson.couchdb.lucene.NGramAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
@@ -48,6 +49,11 @@ public class AnalyzersTest {
     @Test
     public void testWhitespace() throws Exception {
         assertThat(Analyzers.getAnalyzer("whitespace"), is(WhitespaceAnalyzer.class));
+    }
+
+    @Test
+    public void testNGram() throws Exception {
+        assertThat(Analyzers.getAnalyzer("ngram"), is(NGramAnalyzer.class));
     }
 
     @Test
