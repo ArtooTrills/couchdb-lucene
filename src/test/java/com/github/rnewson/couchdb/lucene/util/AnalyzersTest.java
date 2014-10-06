@@ -16,7 +16,9 @@
 
 package com.github.rnewson.couchdb.lucene.util;
 
-import com.github.rnewson.couchdb.lucene.NGramAnalyzer;
+import com.github.rnewson.couchdb.lucene.BiGramAnalyzer;
+import com.github.rnewson.couchdb.lucene.TriGramAnalyzer;
+import com.github.rnewson.couchdb.lucene.TetraGramAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
@@ -52,8 +54,18 @@ public class AnalyzersTest {
     }
 
     @Test
-    public void testNGram() throws Exception {
-        assertThat(Analyzers.getAnalyzer("ngram"), is(NGramAnalyzer.class));
+    public void testBiGram() throws Exception {
+        assertThat(Analyzers.getAnalyzer("bigram"), is(BiGramAnalyzer.class));
+    }
+
+    @Test
+    public void testTriGram() throws Exception {
+        assertThat(Analyzers.getAnalyzer("trigram"), is(TriGramAnalyzer.class));
+    }
+
+    @Test
+    public void testTetraGram() throws Exception {
+        assertThat(Analyzers.getAnalyzer("tetragram"), is(TetraGramAnalyzer.class));
     }
 
     @Test

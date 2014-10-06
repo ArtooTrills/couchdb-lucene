@@ -16,7 +16,9 @@
 
 package com.github.rnewson.couchdb.lucene.util;
 
-import com.github.rnewson.couchdb.lucene.NGramAnalyzer;
+import com.github.rnewson.couchdb.lucene.BiGramAnalyzer;
+import com.github.rnewson.couchdb.lucene.TriGramAnalyzer;
+import com.github.rnewson.couchdb.lucene.TetraGramAnalyzer;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.br.BrazilianAnalyzer;
@@ -164,9 +166,19 @@ public enum Analyzers {
             return new WhitespaceAnalyzer(Constants.VERSION);
         }
     },
-    NGRAM {
+    BIGRAM {
         public Analyzer newAnalyzer(final String args) {
-            return new NGramAnalyzer(Constants.VERSION);
+            return new BiGramAnalyzer(Constants.VERSION);
+        }
+    },
+    TRIGRAM {
+        public Analyzer newAnalyzer(final String args) {
+            return new TriGramAnalyzer(Constants.VERSION);
+        }
+    },
+    TETRAGRAM {
+        public Analyzer newAnalyzer(final String args) {
+            return new TetraGramAnalyzer(Constants.VERSION);
         }
     };
 
